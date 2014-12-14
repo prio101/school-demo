@@ -1,0 +1,49 @@
+<%= form_for @course_section, :html => {:class => 'form-horizontal'} do |f| %>
+    <div class="control-group">
+      <% section_array = ["Stream 1", "Stream 2", "Stream 3", "Stream 4", "Stream 5", "Stream 6", "Stream 7", "Stream 8", "Stream 9", "Stream 10", "Stream 11", "Stream 2", "Stream 13", "Stream 14", "Stream 15"] %>
+      <%= f.label "Class Section", :class => 'control-label' %>
+      <div class="controls">
+        <%= f.select :section_name, section_array, include_blank: "Please Select", :class => 'text_field' %>
+      </div>
+    </div>
+    <div class="control-group">
+      <%= f.label :code, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :code, :class => 'text_field' %>
+      </div>
+    </div>
+    <div class="control-group">
+      <%= f.label "School Year/Term", :class => 'control-label' %>
+      <div class="controls">
+        <%= f.select :batch_id, Batch.all.collect { |batch| [batch.name, batch.id] }, prompt: "Select Batch", :class => 'text_field', id: 'batch'%>
+      </div>
+    </div>
+
+    <div class="control-group" >
+      <%= f.label "Class", :class => 'control-label' %>
+      <div class="controls" id="course-container">
+        <%= f.collection_select :course_id, Course.all, :id, :name, prompt: true ,:class => 'text_field' %>
+      </div>
+    </div>
+
+    <div class="form-actions">
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                  course_sections_path, :class => 'btn' %>
+    </div>
+<% end %>
+
+
+<script type="text/javascript">
+  $(function(){
+
+      $("#course_section_batch_id").on('change', function(){
+          var target_id = $(this).val()
+          var target_dom = "#course-container"
+          var target_input_name = "course_section[course_id]"
+          var target_url = "/ajax/select_course"
+          cascading_input_field_changes(target_id, target_dom, target_input_name, target_url)
+
+      })
+  })
+</script>

@@ -1,0 +1,10 @@
+production:
+  adapter: mysql2
+  encoding: utf8
+  reconnect: false
+  database: school_production
+  pool: 5
+  host: localhost
+  username: root
+  password: qazwsx
+  socket: /var/run/mysqld/mysqld.sock

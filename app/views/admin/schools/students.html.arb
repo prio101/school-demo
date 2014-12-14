@@ -1,0 +1,3 @@
+  table_for assigns[:students] do
+    column :id
+  end

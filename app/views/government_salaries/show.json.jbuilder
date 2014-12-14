@@ -1,0 +1,1 @@
+json.extract! @government_salary, :id, :bank_no, :pay_scale_code, :pay_scale_accomodation_medical, :incrementt, :total, :welfare_reduction, :retirement_reduction, :total_reduction, :total_received, :created_at, :updated_at

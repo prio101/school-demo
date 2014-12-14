@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Bank no:</strong>
+  <%= @government_salary.bank_no %>
+</p>
+
+<p>
+  <strong>Pay scale code:</strong>
+  <%= @government_salary.pay_scale_code %>
+</p>
+
+<p>
+  <strong>Pay scale accomodation medical:</strong>
+  <%= @government_salary.pay_scale_accomodation_medical %>
+</p>
+
+<p>
+  <strong>Increment:</strong>
+  <%= @government_salary.incrementt %>
+</p>
+
+<p>
+  <strong>Total:</strong>
+  <%= @government_salary.total %>
+</p>
+
+<p>
+  <strong>Welfare reduction:</strong>
+  <%= @government_salary.welfare_reduction %>
+</p>
+
+<p>
+  <strong>Retirement reduction:</strong>
+  <%= @government_salary.retirement_reduction %>
+</p>
+
+<p>
+  <strong>Total reduction:</strong>
+  <%= @government_salary.total_reduction %>
+</p>
+
+<p>
+  <strong>Total received:</strong>
+  <%= @government_salary.total_received %>
+</p>
+
+<%= link_to 'Edit', edit_government_salary_path(@government_salary) %> |
+<%= link_to 'Back', government_salaries_path %>

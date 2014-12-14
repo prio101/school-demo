@@ -1,0 +1,25 @@
+<h1>Listing course_timetables</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @course_timetables.each do |course_timetable| %>
+      <tr>
+        <td><%= link_to 'Show', course_timetable %></td>
+        <td><%= link_to 'Edit', edit_course_timetable_path(course_timetable) %></td>
+        <td><%= link_to 'Destroy', course_timetable, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Course timetable', new_course_timetable_path %>

@@ -1,0 +1,18 @@
+<div class="row centercontents">
+
+  <!--
+  <% permitted_to? :create, :students do %>
+      <div class="span2">
+        <%= link_to (image_tag 'admission.png', width: 120), new_student_path %>
+        <%= link_to 'Admission', new_student_path %>
+      </div>
+  <% end %> -->
+
+  <% permitted_to? :dashboard, :students do %>
+      <div class="span2">
+        <%= link_to (image_tag 'student-both.png', width: 120), students_path %>
+        <%= link_to 'Students', students_path %>
+      </div>
+  <% end %>
+</div>
+

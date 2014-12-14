@@ -1,0 +1,2 @@
+module StudentBalancesHelper
+end

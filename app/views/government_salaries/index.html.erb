@@ -1,0 +1,45 @@
+<h1>Salary</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Teacher</th>
+      <th>Bank no</th>
+      <th>Pay scale code</th>
+      <th>Pay scale accomodation medical</th>
+      <th>Increment</th>
+      <th>Total</th>
+      <th>Welfare reduction</th>
+      <th>Retirement reduction</th>
+      <th>Total reduction</th>
+      <th>Total received</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @government_salaries.each do |government_salary| %>
+      <tr>
+        <td><%= government_salary.teacher.name %></td>
+        <td><%= government_salary.bank_no %></td>
+        <td><%= government_salary.pay_scale_code %></td>
+        <td><%= government_salary.pay_scale_accomodation_medical %></td>
+        <td><%= government_salary.incrementt %></td>
+        <td><%= government_salary.total %></td>
+        <td><%= government_salary.welfare_reduction %></td>
+        <td><%= government_salary.retirement_reduction %></td>
+        <td><%= government_salary.total_reduction %></td>
+        <td><%= government_salary.total_received %></td>
+        <td><%= link_to 'Show', government_salary %></td>
+        <td><%= link_to 'Edit', edit_government_salary_path(government_salary) %></td>
+        <td><%= link_to 'Destroy', government_salary, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Government salary', new_government_salary_path, {style: 'color: black'} %>

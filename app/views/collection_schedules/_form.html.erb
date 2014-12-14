@@ -1,0 +1,52 @@
+<%= form_for @collection_schedule, :html => { :class => 'form-horizontal' } do |f| %>
+  <div class="control-group">
+    <%= f.label :fee_category_id, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.collection_select :fee_category_id, FeeCategory.all, :id, :name, prompt: true ,:class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :name, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :name, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :payment_period, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.select :payment_period, CollectionSchedule::
+              PERIODS.collect {|key, value| [key.to_s.humanize, value]} ,:class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :starting_time, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :starting_time, :class => 'text_field datepicker1' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :ending_time, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :ending_time, :class => 'text_field datepicker2' %>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <%= f.label :create_due_invoice, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.check_box :create_due_invoice, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :due_date, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :due_date, :class => 'text_field datepicker' %>
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                collection_schedules_path, :class => 'btn' %>
+  </div>
+<% end %>

@@ -1,0 +1,21 @@
+<%= form_for @batch, :html => {:class => 'form-horizontal'} do |f| %>
+    <div class="control-group">
+      <%= f.label :school_year, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.select :name, (Time.now.year-30..Time.now.year).to_a, :include_blank => "Select Year" %>
+      </div>
+    </div>
+
+
+    <div class="control-group">
+      <div class="controls">
+        <%= f.hidden_field :school_id, :class => 'text_field' %>
+      </div>
+    </div>
+
+    <div class="form-actions">
+      <%= f.submit "Create School Year/Term", :class => 'btn btn-primary' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                  batches_path, :class => 'btn' %>
+    </div>
+<% end %>

@@ -1,0 +1,69 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Serial:</strong>
+  <%= @teacher.serial %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @teacher.name %>
+</p>
+
+<p>
+  <strong>Date of birth:</strong>
+  <%= @teacher.date_of_birth %>
+</p>
+
+<p>
+  <strong>Educational background:</strong>
+  <%= @teacher.educational_background %>
+</p>
+
+<p>
+  <strong>Date of joining:</strong>
+  <%= @teacher.date_of_joining %>
+</p>
+
+<p>
+  <strong>Designation:</strong>
+  <%= @teacher.designation %>
+</p>
+
+<p>
+  <strong>Date of mpo:</strong>
+  <%= @teacher.date_of_MPO %>
+</p>
+
+<p>
+  <strong>Salary scale and grade:</strong>
+  <%= @teacher.salary_scale_and_grade %>
+</p>
+
+<p>
+  <strong>Index number:</strong>
+  <%= @teacher.index_number %>
+</p>
+
+<p>
+  <strong>Mobile:</strong>
+  <%= @teacher.mobile %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @teacher.email %>
+</p>
+
+<p>
+  <strong>Part time or full time:</strong>
+  <%= @teacher.part_time_or_full_time %>
+</p>
+
+<p>
+  <strong>Course wise department:</strong>
+  <%= @teacher.course_wise_department %>
+</p>
+
+<%= link_to 'Edit', edit_teacher_path(@teacher) %> |
+<%= link_to 'Back', teachers_path %>

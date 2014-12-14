@@ -1,0 +1,32 @@
+<%= form_for @course, :html => { :class => 'form-horizontal' } do |f| %>
+  <div class="control-group">
+    <%= f.label :Class, :class => 'control-label' %>
+    <div class="controls">
+      <% array = %w(Intermediate-Science Intermediate-Arts Intermediate-Commerce BA BSS BBS) %>
+      <%= f.select :name, array ,:class => 'text_field' %>
+    </div>
+  </div>
+
+    <div class="control-group">
+      <%= f.label :code, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :code, :class => 'text_field' %>
+      </div>
+    </div>
+
+
+  <div class="control-group">
+    <%= f.label "School Year/Term", :class => 'control-label' %>
+    <div class="controls">
+      <%= f.select :batch_id, Batch.all.collect {|batch| [batch.try(:name), batch.try(:id)]},prompt: true ,:class => 'text_field' %>
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <%= f.submit "Create Course", :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                courses_path, :class => 'btn' %>
+  </div>
+<% end %>
+
+

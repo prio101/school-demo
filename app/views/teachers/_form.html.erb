@@ -1,0 +1,74 @@
+<%= form_for(@teacher) do |f| %>
+  <% if @teacher.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@teacher.errors.count, "error") %> prohibited this teacher from being saved:</h2>
+
+      <ul>
+      <% @teacher.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+    <div class="field">
+      <%= f.label 'Department' %><br>
+      <%= f.select 'department_id', Department.all.map {|p| [ p.name, p.id ] } %>
+    </div>
+
+  <div class="field">
+    <%= f.label :serial %><br>
+    <%= f.text_field :serial %>
+  </div>
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :date_of_birth %><br>
+    <%= f.date_select :date_of_birth %>
+  </div>
+  <div class="field">
+    <%= f.label :educational_background %><br>
+    <%= f.text_area :educational_background %>
+  </div>
+  <div class="field">
+    <%= f.label :date_of_joining %><br>
+    <%= f.date_select :date_of_joining %>
+  </div>
+  <div class="field">
+    <%= f.label :designation %><br>
+    <%= f.text_field :designation %>
+  </div>
+  <div class="field">
+    <%= f.label :date_of_MPO %><br>
+    <%= f.date_select :date_of_MPO %>
+  </div>
+  <div class="field">
+    <%= f.label :salary_scale_and_grade %><br>
+    <%= f.text_field :salary_scale_and_grade %>
+  </div>
+  <div class="field">
+    <%= f.label :index_number %><br>
+    <%= f.text_field :index_number %>
+  </div>
+  <div class="field">
+    <%= f.label :mobile %><br>
+    <%= f.text_field :mobile %>
+  </div>
+  <div class="field">
+    <%= f.label :email %><br>
+    <%= f.text_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label :part_time_or_full_time %><br>
+    <%= f.text_field :part_time_or_full_time %>
+  </div>
+  <div class="field">
+    <%= f.label :course_wise_department %><br>
+    <%= f.text_field :course_wise_department %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

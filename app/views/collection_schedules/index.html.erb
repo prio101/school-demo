@@ -1,0 +1,52 @@
+<%- model_class = CollectionSchedule -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:fee_category_id) %></th>
+      <th><%= model_class.human_attribute_name(:name) %></th>
+      <th><%= model_class.human_attribute_name(:payment_period) %></th>
+      <th><%= model_class.human_attribute_name(:starting_time) %></th>
+      <th><%= model_class.human_attribute_name(:ending_time) %></th>
+      <th><%= model_class.human_attribute_name(:create_due_invoice) %></th>
+      <th><%= model_class.human_attribute_name(:due_date) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @collection_schedules.each do |collection_schedule| %>
+      <tr>
+        <td><%= link_to collection_schedule.id, collection_schedule_path(collection_schedule) %></td>
+        <td><%= collection_schedule.fee_category.try(:name) %></td>
+        <td><%= collection_schedule.name %></td>
+        <td><%= collection_schedule.period %></td>
+        <td><%= collection_schedule.starting_time %></td>
+        <td><%= collection_schedule.ending_time %></td>
+        <td><%= collection_schedule.create_due_invoice %></td>
+        <td><%= collection_schedule.due_date %></td>
+        <td><%=l collection_schedule.created_at %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_collection_schedule_path(collection_schedule), :class => 'btn btn-mini' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      collection_schedule_path(collection_schedule),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+    <%= paginate @collection_schedules,  :theme => 'twitter-bootstrap' %>
+
+
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_collection_schedule_path,
+            :class => 'btn btn-primary' %>

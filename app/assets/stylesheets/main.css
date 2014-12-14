@@ -1,0 +1,176 @@
+body > div.container > div.row > div > table > thead > tr > th {
+    background: rgba(98, 161, 204, 0.41);;
+    color: #fff; padding: 10px 30px}
+
+body > div.container > div.row > div > div > h1 {
+    color: #d33804;
+}
+a.btn.btn-mini.btn-danger { color: #fff }
+body > div.container > div.row > div > a { color: #fff  }
+
+.navbar-fixed-top .navbar-inner, .navbar-static-top .navbar-inner {
+     -webkit-box-shadow: none !important;
+    -moz-box-shadow: none !important;
+     box-shadow: none !important;
+}
+
+.navbar-inner {
+    min-height: 60px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 20px;
+    background-color: #1d9b72;
+    background-image: none !important;
+    background-repeat: repeat-x;
+    border:  none !important;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+    -webkit-box-shadow:  none !important;
+    -moz-box-shadow:  none !important;
+    box-shadow: none !important;
+}
+
+.navbar .brand {
+    float: left;
+    display: block;
+    padding: 10px 20px 10px;
+    margin-left: -20px;
+    font-size: 20px;
+    font-weight: 200;
+    color: #ffffff;
+    text-shadow: none !important;
+}
+
+.navbar .brand_2 {
+    float: right;
+    display: block;
+    padding: 10px 20px 10px;
+    margin-left: -20px;
+    font-size: 14px;
+    font-weight: 200;
+    color: #ffffff;
+    text-shadow: none !important;
+}
+
+a:hover {
+    color: #bababa !important;
+    background-color: inherit !important;
+}
+
+
+.navbar .nav>li>a {
+    float: none;
+    font-weight: bold;
+    padding: 10px 15px 10px;
+    color: #000000 !important;
+    text-decoration: none;
+    text-shadow: none !important;
+}
+
+.nav-tabs>li>a {
+    padding-top: 8px;
+    padding-bottom: 8px;
+    line-height: 20px;
+    border: none;
+    -webkit-border-radius:  0 !important;
+    -moz-border-radius:  0 !important;
+    border-radius: 0 !important;
+}
+
+
+.nav-tabs {
+     border-bottom: 0 !important;
+}
+
+.breadcrumb {
+    padding: 20px 15px;
+    margin: 0 0 20px;
+    list-style: none;
+    background-color: #fff;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    color: #fff !important;
+    border-bottom: 1px solid rgba(211, 56, 4, 0.33);
+}
+
+.breadcrumb>li {
+    display: inline-block;
+    text-shadow: 0 !important;
+}
+
+.breadcrumb>.active {
+    color: #d33804;
+}
+
+.form-actions {
+    padding: 19px 20px 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: #f6f6f6;
+    border-top: 1px solid #e5e5e5;
+}
+
+
+form input[type=submit] {
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+    display: inline-block;
+    font-weight: bold;
+    font-size: 1.0em;
+    font-family: Helvetica, Arial, sans-serif;
+    line-height: 12px;
+    margin-right: 3px;
+    padding: 7px 16px 6px;
+    text-decoration: none;
+    -webkit-font-smoothing: antialiased;
+    background: #d33804 !important;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FF838A90', endColorstr='#FF414549');
+    -ms-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FF838A90', endColorstr='#FF414549');
+    text-shadow: none !important;
+    box-shadow: 0 !important;
+    border: none !important;
+    border-color: inherit !important;
+    color: #fff;
+    cursor: pointer;
+}
+
+
+form a.btn  {
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+    display: inline-block;
+    font-weight: bold;
+    font-size: 1.0em;
+    font-family: Helvetica, Arial, sans-serif;
+    line-height: 12px;
+    margin-right: 3px;
+    padding: 7px 16px 6px;
+    text-decoration: none;
+    -webkit-font-smoothing: antialiased;
+    background: #d33804 !important;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FF838A90', endColorstr='#FF414549');
+    -ms-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FF838A90', endColorstr='#FF414549');
+    text-shadow: none !important;
+    box-shadow: 0 !important;
+    border: none !important;
+    border-color: inherit !important;
+    color: #fff;
+    cursor: pointer;
+}
+
+.page-header h1 { font-size: 23px !important;  }
+
+
+
+
+/******
+override the bootstrap
+****/
+.dropdown-menu>li>a{
+
+    font-weight: bold;
+}

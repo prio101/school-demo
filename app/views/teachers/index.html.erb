@@ -1,0 +1,51 @@
+<h1>Listing teachers</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Serial</th>
+      <th>Name</th>
+      <th>Date of birth</th>
+      <th>Educational background</th>
+      <th>Date of joining</th>
+      <th>Designation</th>
+      <th>Date of mpo</th>
+      <th>Salary scale and grade</th>
+      <th>Index number</th>
+      <th>Mobile</th>
+      <th>Email</th>
+      <th>Part time or full time</th>
+      <th>Course wise department</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @teachers.each do |teacher| %>
+      <tr>
+        <td><%= teacher.serial %></td>
+        <td><%= teacher.name %></td>
+        <td><%= teacher.date_of_birth %></td>
+        <td><%= teacher.educational_background %></td>
+        <td><%= teacher.date_of_joining %></td>
+        <td><%= teacher.designation %></td>
+        <td><%= teacher.date_of_MPO %></td>
+        <td><%= teacher.salary_scale_and_grade %></td>
+        <td><%= teacher.index_number %></td>
+        <td><%= teacher.mobile %></td>
+        <td><%= teacher.email %></td>
+        <td><%= teacher.part_time_or_full_time %></td>
+        <td><%= teacher.course_wise_department %></td>
+        <td><%= link_to 'Show', teacher %></td>
+        <td><%= link_to 'Edit', edit_teacher_path(teacher) %></td>
+        <td><%= link_to 'Destroy', teacher, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Teacher', new_teacher_path, {style: 'color: black'} %>

@@ -1,0 +1,1 @@
+<%= select_tag field_name, options_for_select(course_sections.collect {|course| [course.section_name, course.id]}, prompt: 'Select Section') %>

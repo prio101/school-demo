@@ -1,0 +1,34 @@
+<%- model_class = StudentBalance -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+</div>
+<div class="centercontents">
+  <p>Amount Payable: <%= current_user.student.amount_payable %></p>
+  <p>Current Balance: <%= current_user.student.balance %></p>
+  <p>Total Paid: <%= current_user.student.paid_transactions %></p>
+</div>
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th><%= model_class.human_attribute_name(:id) %></th>
+    <th><%= model_class.human_attribute_name(:amount) %></th>
+    <th><%= model_class.human_attribute_name(:msisdn) %></th>
+    <th><%= model_class.human_attribute_name(:transaction_id) %></th>
+    <th><%= model_class.human_attribute_name(:due) %></th>
+    <th><%= model_class.human_attribute_name(:reference) %></th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @student_balances.each do |student_balance| %>
+      <tr>
+        <td><%= link_to student_balance.id, student_student_balance_path(current_user.student, student_balance) %></td>
+        <td><%= student_balance.amount %></td>
+        <td><%= student_balance.msisdn %></td>
+        <td><%= student_balance.transaction_id %></td>
+        <td><%= student_balance.due %></td>
+        <td><%= student_balance.reference %></td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
+

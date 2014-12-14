@@ -1,0 +1,46 @@
+<%- model_class = Fee -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:amount) %></th>
+      <th><%= model_class.human_attribute_name(:currency) %></th>
+      <th><%= model_class.human_attribute_name(:school_id) %></th>
+      <th><%= model_class.human_attribute_name(:batch_id) %></th>
+      <th><%= model_class.human_attribute_name(:classification_id) %></th>
+      <th><%= model_class.human_attribute_name(:course_id) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @fees.each do |fee| %>
+      <tr>
+        <td><%= link_to fee.id, fee_path(fee) %></td>
+        <td><%= fee.amount %></td>
+        <td><%= fee.currency %></td>
+        <td><%= fee.school_id %></td>
+        <td><%= fee.batch_id %></td>
+        <td><%= fee.classification_id %></td>
+        <td><%= fee.course_id %></td>
+        <td><%=l fee.created_at %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_fee_path(fee), :class => 'btn btn-mini' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      fee_path(fee),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_fee_path,
+            :class => 'btn btn-primary' %>
