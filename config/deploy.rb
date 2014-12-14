@@ -2,7 +2,8 @@ require 'bundler/capistrano'
 require 'capistrano-rbenv'
 set :rbenv_ruby_version, '2.1.2'
 
-server '167.114.46.147', :web, :app, :db, primary: true
+server "ec2-54-69-251-61.us-west-2.compute.amazonaws.com", :app, :web, :db, :primary => true
+ssh_options[:keys] = ["#{ENV['HOME']}/skool.pem"]
 
 set :application, 'school'
 set :user, 'ubuntu'
@@ -11,7 +12,7 @@ set :deploy_via, :remote_cache
 set :use_sudo, false
 
 set :scm, 'git'
-set :repository, "git@github.com:rubyrider/skoolway.com.git"
+set :repository, "git remote add origin git@github.com:rubyrider/school-demo.git"
 set :branch, 'master'
 set :shared_children, shared_children + %w{public/uploads}
 
