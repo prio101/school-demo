@@ -28,8 +28,7 @@ SchoolWings::Application.configure do
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.
   config.assets.compile = true
-  config.assets.precompile += %w(*.svg *.eot *.woff *.ttf *.gif *.png *.ico *.js *.css *.css.erb)
-  config.assets.precompile << /\A(?!active_admin).*\.(js|css)\z/
+  config.assets.precompile += %w( active_admin.css active_admin/print.css active_admin.js )
 
   # Generate digests for assets URLs.
   config.assets.digest = true
