@@ -1,7 +1,5 @@
 SchoolWings::Application.routes.draw do
 
-  resources :notices
-
   resources :government_salaries
 
   resources :teachers

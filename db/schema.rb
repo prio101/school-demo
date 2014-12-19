@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141219175614) do
+ActiveRecord::Schema.define(version: 20141210035006) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -107,7 +107,7 @@ ActiveRecord::Schema.define(version: 20141219175614) do
   create_table "collection_schedules", force: true do |t|
     t.string   "fee_category_id"
     t.string   "name"
-    t.string   "starting_time",      default: "2014-12-19", null: false
+    t.string   "starting_time",      default: "2014-12-01", null: false
     t.string   "ending_time"
     t.integer  "school_id"
     t.boolean  "create_due_invoice", default: true
@@ -320,13 +320,6 @@ ActiveRecord::Schema.define(version: 20141219175614) do
   add_index "invoices", ["fee_id"], name: "index_invoices_on_fee_id", using: :btree
   add_index "invoices", ["school_id"], name: "index_invoices_on_school_id", using: :btree
   add_index "invoices", ["user_id"], name: "index_invoices_on_user_id", using: :btree
-
-  create_table "notices", force: true do |t|
-    t.string   "title"
-    t.text     "description"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
 
   create_table "parents", force: true do |t|
     t.string   "full_name"

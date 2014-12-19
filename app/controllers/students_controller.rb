@@ -6,7 +6,7 @@ class StudentsController < ApplicationController
   before_filter :authenticate_user!
 
 
-  before_action :set_student, only: [:show, :edit, :update, :destroy]
+  before_action :set_student, only: [:show, :edit, :update, :destroy, :assign_subjects]
 
   filter_access_to :all
 
@@ -80,7 +80,7 @@ class StudentsController < ApplicationController
   def update
     respond_to do |format|
       if @student.update(student_params)
-        format.html { redirect_to @student, notice: 'Student was successfully updated.' }
+        format.html { redirect_to request.referer, notice: 'Student was successfully updated.' }
         format.json { head :no_content }
       else
         flash.now[:error] = @student.errors.full_messages.join(', ')
@@ -99,6 +99,12 @@ class StudentsController < ApplicationController
       format.html { redirect_to students_url }
       format.json { head :no_content }
     end
+  end
+
+  def assign_subjects
+    @student = Student.find(params[:id])
+    @assigned_subjects = @student.subjects
+    @subjects = Subject.all
   end
 
   private

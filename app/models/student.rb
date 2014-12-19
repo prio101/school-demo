@@ -58,6 +58,10 @@ class Student < ActiveRecord::Base
   has_many :invoices
   has_many :parents
 
+
+  has_many :student_subjects
+  has_many :subjects, through: :student_subjects
+
   accepts_nested_attributes_for :parents
 
 

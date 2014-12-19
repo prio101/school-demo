@@ -1,0 +1,29 @@
+<h1>Listing student_subjects</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Subject</th>
+      <th>Student</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @student_subjects.each do |student_subject| %>
+      <tr>
+        <td><%= student_subject.subject_id %></td>
+        <td><%= student_subject.student_id %></td>
+        <td><%= link_to 'Show', student_subject %></td>
+        <td><%= link_to 'Edit', edit_student_subject_path(student_subject) %></td>
+        <td><%= link_to 'Destroy', student_subject, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Student subject', new_student_subject_path %>
