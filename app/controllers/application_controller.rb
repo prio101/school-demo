@@ -32,7 +32,8 @@ class ApplicationController < ActionController::Base
   end
 
   def set_school
-    current_school = School.find_by(domain: current_domain)
+    # current_school = School.find_by(domain: current_domain)
+    current_school = School.first
     set_current_tenant(current_school)
   end
 
