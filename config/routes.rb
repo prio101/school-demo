@@ -1,12 +1,12 @@
 SchoolWings::Application.routes.draw do
 
+  resources :subjects
+
   resources :government_salaries
 
   resources :teachers
 
   resources :departments
-
-  resources :subjects
 
   resources :defaulter_settings
   resources :student_defaulter_settings
@@ -26,6 +26,7 @@ SchoolWings::Application.routes.draw do
   resources :students do
     collection { post :import }
     collection { get :import }
+    member { get :assign_subjects }
     resources :student_balances
     resources :parents
     collection do

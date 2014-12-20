@@ -1,35 +1,35 @@
 <div class="row centercontents">
   <% permitted_to? :create, :students do %>
       <div class="span2">
-        <%= link_to (image_tag 'admission.png', width: 120), new_student_path %>
+        <%= link_to (image_tag 'admissionflat.png', width: 120), new_student_path %>
         <hr/>
         <%= link_to 'Admissions', new_student_path %>
       </div>
   <% end %>
   <% permitted_to? :dashboard, :students do %>
       <div class="span2">
-        <%= link_to (image_tag 'student-both.png', width: 120), dashboard_students_path %>
+        <%= link_to (image_tag 'student.png', width: 120), dashboard_students_path %>
         <hr/>
         <%= link_to 'Students', dashboard_students_path %>
       </div>
   <% end %>
   <% permitted_to? :dashboard, :batches do %>
       <div class="span2">
-        <%= link_to (image_tag 'group-of-people.png', width: 120), batches_path %>
+        <%= link_to (image_tag 'yearflat.png', width: 120), batches_path %>
         <hr/>
         <%= link_to 'Year/Term', batches_path %>
       </div>
   <% end %>
   <% permitted_to? :manage, :courses do %>
       <div class="span2">
-        <%= link_to (image_tag 'Courses-icon.png', width: 120), courses_path %>
+        <%= link_to (image_tag 'coursesflat.png', width: 120), courses_path %>
         <hr/>
         <%= link_to 'Courses', courses_path %>
       </div>
   <% end %>
   <% permitted_to? :manage, :courses do %>
       <div class="span2">
-        <%= link_to (image_tag 'grad-people-icon_27704.png', width: 120), course_sections_path %>
+        <%= link_to (image_tag 'sectionflat.png', width: 120), course_sections_path %>
         <hr/>
         <%= link_to 'Class Section', course_sections_path %>
       </div>
@@ -52,22 +52,28 @@
   <% end %>
 
   <div class="span2">
-    <%= link_to (image_tag 'admission.png', width: 120), departments_path %>
+    <%= link_to (image_tag 'admissionflat.png', width: 120), departments_path %>
     <hr/>
     <%= link_to 'Departments', departments_path %>
   </div>
 
 
   <div class="span2">
-    <%= link_to (image_tag 'admission.png', width: 120), teachers_path %>
+    <%= link_to (image_tag 'teacherflat.png', width: 120), teachers_path %>
     <hr/>
     <%= link_to 'Teachers', teachers_path %>
   </div>
 
   <div class="span2">
-    <%= link_to (image_tag 'admission.png', width: 120), government_salaries_path %>
+    <%= link_to (image_tag 'admissionflat.png', width: 120), government_salaries_path %>
     <hr/>
     <%= link_to 'Salary from Government Section', government_salaries_path %>
+  </div>
+
+  <div class="span2">
+    <%= link_to (image_tag 'admissionflat.png', width: 120), subjects_path %>
+    <hr/>
+    <%= link_to 'Subject', subjects_path %>
   </div>
 
 </div>

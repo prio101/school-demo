@@ -174,3 +174,13 @@ override the bootstrap
 
     font-weight: bold;
 }
+
+.span2{
+
+    font-weight: bold;
+    text-align: center;
+    font-size: 20px;
+    color: #000000;
+    padding: 10px;
+
+}

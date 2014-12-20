@@ -3,6 +3,9 @@ authorization do
     has_permission_on :students, :to => [:manage, :import] do
       if_attribute :school_id => is {ActsAsTenant.current_tenant.id}
     end
+    has_permission_on :students, :to => [:manage, :assign_subjects] do
+      if_attribute :school_id => is {ActsAsTenant.current_tenant.id}
+    end
     has_permission_on :batches, :to => :manage do
       if_attribute :school_id => is {ActsAsTenant.current_tenant.id}
     end
