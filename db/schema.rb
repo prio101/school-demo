@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141210035006) do
+ActiveRecord::Schema.define(version: 20141219223144) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -107,7 +107,7 @@ ActiveRecord::Schema.define(version: 20141210035006) do
   create_table "collection_schedules", force: true do |t|
     t.string   "fee_category_id"
     t.string   "name"
-    t.string   "starting_time",      default: "2014-12-01", null: false
+    t.string   "starting_time",      default: "2014-12-20", null: false
     t.string   "ending_time"
     t.integer  "school_id"
     t.boolean  "create_due_invoice", default: true
@@ -321,6 +321,13 @@ ActiveRecord::Schema.define(version: 20141210035006) do
   add_index "invoices", ["school_id"], name: "index_invoices_on_school_id", using: :btree
   add_index "invoices", ["user_id"], name: "index_invoices_on_user_id", using: :btree
 
+  create_table "notices", force: true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "parents", force: true do |t|
     t.string   "full_name"
     t.boolean  "primary_contract_person"
@@ -411,14 +418,11 @@ ActiveRecord::Schema.define(version: 20141210035006) do
   end
 
   create_table "student_subjects", force: true do |t|
-    t.integer  "student_id"
     t.integer  "subject_id"
+    t.integer  "student_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  add_index "student_subjects", ["student_id"], name: "index_student_subjects_on_student_id", using: :btree
-  add_index "student_subjects", ["subject_id"], name: "index_student_subjects_on_subject_id", using: :btree
 
   create_table "students", force: true do |t|
     t.integer  "school_id"
@@ -451,6 +455,8 @@ ActiveRecord::Schema.define(version: 20141210035006) do
   add_index "students", ["school_id"], name: "index_students_on_school_id", using: :btree
 
   create_table "subjects", force: true do |t|
+    t.string   "name"
+    t.string   "code"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
