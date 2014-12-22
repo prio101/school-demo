@@ -1,5 +1,6 @@
 body > div.container > div.row > div > table > thead > tr > th {
-    background: rgba(98, 161, 204, 0.41);;
+    background: rgba(8, 8, 8, 0.41);
+    width: 100%;
     color: #fff; padding: 10px 30px}
 
 body > div.container > div.row > div > div > h1 {

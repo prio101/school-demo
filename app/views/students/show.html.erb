@@ -46,6 +46,9 @@
   <%= link_to t('Transactions', :default => t("helpers.links.balances")),
               student_student_balances_path(@student), :class => 'btn' %>
 
+  <%= link_to t('Add Subject'),
+              assign_subjects_student_path(@student), :class => 'btn' %>
+
 
   <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
               student_path(@student),

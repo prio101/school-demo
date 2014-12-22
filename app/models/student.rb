@@ -52,6 +52,7 @@ class Student < ActiveRecord::Base
   belongs_to :course
   belongs_to :school
   belongs_to :course_section
+  has_many :results
 
 
   has_many :student_balances
