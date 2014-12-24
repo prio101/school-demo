@@ -36,7 +36,14 @@ class StudentsController < ApplicationController
     permitted_to? :manage, :students do
       add_breadcrumb "Students", :students_path, :options => {:title => "Students"}
     end
-    @students = Student.order(:admission_number => :asc).page params[:page]
+    if params[:batch_id].present?
+      @batch = Batch.find(params[:batch_id])
+      @course = Course.find(params[:course_id])
+      @students = Student.where(batch_id: @batch.id, course_id: @course.id).order(:admission_number => :asc).page params[:page]
+    else
+      @students = Student.order(:admission_number => :asc).page params[:page]
+    end
+
   end
 
   # GET /students/1
