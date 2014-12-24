@@ -5,7 +5,7 @@ class ResultsController < ApplicationController
   before_filter :set_student
 
   def index
-    @results = Result.where(student_id: @student)
+    @results = Result.where(student_id: @student.id)
   end
 
   def show
@@ -41,7 +41,17 @@ class ResultsController < ApplicationController
   end
 
   def delete
+    @result = Result.find_by_student_id(@student.id)
+  end
 
+  def destroy
+    @result = Result.find_by_student_id(@student.id)
+    @result.destroy
+    respond_to do |format|
+      flash.now[:error] = "Result record deleted"
+      format.html { redirect_to students_url }
+      format.json { head :no_content }
+    end
   end
 
   private
