@@ -2,6 +2,7 @@ SchoolWings::Application.routes.draw do
 
 
 
+  get "homepage/index"
   resources :government_salaries
 
   resources :teachers
