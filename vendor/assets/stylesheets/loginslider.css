@@ -11,7 +11,7 @@ Inspired By:Sliding Login Panel with jQuery from http://web-kreation.com/index.p
 */
 
 #topbar{position:relative; margin:0 auto; display:block; width:960px; font-size:12px; font-family:Verdana, Arial, Helvetica, sans-serif;}
-#topbar a{color:#02ACEE; background-color:#4A5155;}
+#topbar a{color:#22AB7E; background-color:#4A5155;}
 #topbar a:hover{color:#FFFFFF; background-color:#4A5155;}
 #slidepanel{display:none; position:relative; width:960px; overflow:hidden; color:#E3DFD2; background:url("tab_l.gif") bottom left no-repeat #4A5155;}
 
