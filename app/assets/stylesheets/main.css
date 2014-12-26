@@ -185,3 +185,29 @@ override the bootstrap
     padding: 10px;
 
 }
+
+
+.span2 img {
+    display: block;
+    margin: 0 auto;
+    padding: 0px;
+    border: medium none;
+}
+
+
+#skool_way{
+
+    margin: 0;
+}
+
+
+.dl-horizontal dt {
+    width: 160px;
+    clear: left;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    float: left;
+    border-bottom: 1px solid;
+    text-align: left;
+}

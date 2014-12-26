@@ -8,9 +8,9 @@
   <% end %>
   <% permitted_to? :dashboard, :students do %>
       <div class="span2">
-        <%= link_to (image_tag 'student.png', width: 120), dashboard_students_path %>
+        <%= link_to (image_tag 'student.png', width: 120), students_path %>
         <hr/>
-        <%= link_to 'Students', dashboard_students_path %>
+        <%= link_to 'Students', students_path %>
       </div>
   <% end %>
   <% permitted_to? :dashboard, :batches do %>
@@ -37,7 +37,7 @@
 
   <% permitted_to? :manage, :fees do %>
       <div class="span2">
-        <%= link_to (image_tag 'tuition-fees-icon.png', width: 120), dashboard_fees_path %>
+        <%= link_to (image_tag 'payment.png', width: 120), dashboard_fees_path %>
         <hr/>
         <%= link_to 'Fee Payment', dashboard_fees_path %>
       </div>
@@ -52,7 +52,7 @@
   <% end %>
 
   <div class="span2">
-    <%= link_to (image_tag 'admissionflat.png', width: 120), departments_path %>
+    <%= link_to (image_tag 'dept.png', width: 120), departments_path %>
     <hr/>
     <%= link_to 'Departments', departments_path %>
   </div>
@@ -65,13 +65,13 @@
   </div>
 
   <div class="span2">
-    <%= link_to (image_tag 'admissionflat.png', width: 120), government_salaries_path %>
+    <%= link_to (image_tag 'salary.png', width: 120), government_salaries_path %>
     <hr/>
     <%= link_to 'Salary from Government Section', government_salaries_path %>
   </div>
 
   <div class="span2">
-    <%= link_to (image_tag 'admissionflat.png', width: 120), subjects_path %>
+    <%= link_to (image_tag 'subject.png', width: 120), subjects_path %>
     <hr/>
     <%= link_to 'Subject', subjects_path %>
   </div>
