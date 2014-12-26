@@ -2,7 +2,6 @@ SchoolWings::Application.routes.draw do
 
 
 
-  get "homepage/index"
   resources :government_salaries
 
   resources :teachers
@@ -14,7 +13,7 @@ SchoolWings::Application.routes.draw do
   resources :defaulter_settings
   resources :student_defaulter_settings
 
-  root 'main#home'
+  root '"homepage#index"'
   get 'main/student_balance_information'
 
   devise_for :users
