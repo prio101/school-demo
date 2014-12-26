@@ -14,6 +14,7 @@ SchoolWings::Application.routes.draw do
   resources :student_defaulter_settings
 
   root "homepage#index"
+  get 'main/home' => "main#home"
   get 'main/student_balance_information'
 
   devise_for :users
