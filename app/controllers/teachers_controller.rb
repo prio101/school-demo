@@ -11,7 +11,7 @@ class TeachersController < ApplicationController
     @teacher = Teacher.new(permitted_params)
 
     if @teacher.save
-      redirect_to teachers_path, notice: 'Department Created'
+      redirect_to teachers_path, notice: 'Teacher Created'
     else
       render 'new'
     end
