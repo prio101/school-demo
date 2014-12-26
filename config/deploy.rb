@@ -3,7 +3,7 @@ require 'capistrano-rbenv'
 set :rbenv_ruby_version, '2.1.2'
 
 server "ec2-54-148-88-60.us-west-2.compute.amazonaws.com", :app, :web, :db, :primary => true
-ssh_options[:keys] = ["#{ENV['HOME']}/skool.pem"]
+ssh_options[:keys] = ["#{ENV['HOME']}/school.pem"]
 
 set :application, 'school'
 set :user, 'ubuntu'
