@@ -48,3 +48,5 @@ module SchoolWings
 
   end
 end
+
+ENV['HOME_PATH'] = "#{Rails.root}/config"

@@ -3,8 +3,7 @@ require 'capistrano-rbenv'
 set :rbenv_ruby_version, '2.1.2'
 
 server "ec2-54-148-88-60.us-west-2.compute.amazonaws.com", :app, :web, :db, :primary => true
-ssh_options[:keys] = ["#{ENV['HOME']}/school.pem"]
-# ssh_options[:keys] = ["#{Rails.root.join("public", "school.pem")}"]
+# ssh_options[:keys] = ["#{ENV['HOME']}/school.pem"]
 
 set :application, 'school'
 set :user, 'ubuntu'
@@ -19,6 +18,9 @@ set :shared_children, shared_children + %w{public/uploads}
 
 default_run_options[:pty] = true
 ssh_options[:forward_agent] = true
+ssh_options[:auth_methods] = ["publickey"]
+ssh_options[:keys] = ["config/school.pem"]
+
 
 after 'deploy', 'deploy:cleanup'
 
