@@ -25,7 +25,7 @@ end
 
 gem 'bcrypt-ruby', '~> 3.0.0'
 gem 'unicorn'
-gem 'debugger', group: [:development, :test]
+# gem 'debugger', group: [:development, :test]
 gem 'cancan'
 gem 'acts_as_tenant'
 gem 'wicked'
