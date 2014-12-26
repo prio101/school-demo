@@ -12,12 +12,17 @@
   <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.1/html5shiv.js" type="text/javascript"></script>
   <![endif]-->
 
-  <%= stylesheet_link_tag "/assets/layout.css", :media => "all" %>
-  <%= stylesheet_link_tag "/assets/featured_slide.css", :media => "all" %>
-  <%= stylesheet_link_tag "/assets/forms.css", :media => "all" %>
-  <%= stylesheet_link_tag "/assets/loginslider.css", :media => "all" %>
-  <%= stylesheet_link_tag "/assets/navi.css", :media => "all" %>
-  <%= stylesheet_link_tag "/assets/tables.css", :media => "all" %>
+  <link rel="stylesheet" media="all" href="/assets/layout.css"></link>
+
+  <link rel="stylesheet" media="all" href="/assets/featured_slide.css"></link>
+
+  <link rel="stylesheet" media="all" href="/assets/forms.css"></link>
+
+  <link rel="stylesheet" media="all" href="/assets/loginslider.css"></link>
+
+  <link rel="stylesheet" media="all" href="/assets/navi"></link>
+
+  <link rel="stylesheet" media="all" href="/assets/tables.css"></link>
 
   <!-- For third-generation iPad with high-resolution Retina display: -->
   <!-- Size should be 144 x 144 pixels -->
@@ -39,9 +44,11 @@
   <!-- Size should be 32 x 32 pixels -->
   <%= favicon_link_tag 'favicon.ico', :rel => 'shortcut icon' %>
 
-  <%= javascript_include_tag "/assets/jquery.min" %>
-  <%= javascript_include_tag "/assets/jquery.slidepanel.setup" %>
-  <%= javascript_include_tag "/assets/jquery.cycle.min" %>
+  <script src="/assets/jquery.min.js"></script>
+
+  <script src="/assets/jquery.slidepanel.setup.js"></script>
+
+  <script src="/assets/jquery.cycle.min.js"></script>
 </head>
 <body>
 
