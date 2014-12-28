@@ -2,6 +2,8 @@ SchoolWings::Application.routes.draw do
 
 
 
+  resources :cards
+
   resources :government_salaries
 
   resources :teachers

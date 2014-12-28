@@ -58,6 +58,7 @@ class Student < ActiveRecord::Base
   has_many :student_balances
   has_many :invoices
   has_many :parents
+  has_many :cards
 
 
   has_many :student_subjects

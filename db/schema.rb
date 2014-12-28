@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141222023754) do
+ActiveRecord::Schema.define(version: 20141228194121) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -83,6 +83,13 @@ ActiveRecord::Schema.define(version: 20141222023754) do
   end
 
   add_index "batches", ["school_id"], name: "index_batches_on_school_id", using: :btree
+
+  create_table "cards", force: true do |t|
+    t.string   "tag"
+    t.integer  "student_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "classifications", force: true do |t|
     t.string   "name"
