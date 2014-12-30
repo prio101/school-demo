@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141228194121) do
+ActiveRecord::Schema.define(version: 20141230053816) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -66,6 +66,9 @@ ActiveRecord::Schema.define(version: 20141228194121) do
     t.boolean  "attended"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "present"
+    t.date     "date"
+    t.string   "weekday"
   end
 
   add_index "attendances", ["batch_id"], name: "index_attendances_on_batch_id", using: :btree
@@ -114,7 +117,7 @@ ActiveRecord::Schema.define(version: 20141228194121) do
   create_table "collection_schedules", force: true do |t|
     t.string   "fee_category_id"
     t.string   "name"
-    t.string   "starting_time",      default: "2014-12-29", null: false
+    t.string   "starting_time",      default: "2014-12-20", null: false
     t.string   "ending_time"
     t.integer  "school_id"
     t.boolean  "create_due_invoice", default: true

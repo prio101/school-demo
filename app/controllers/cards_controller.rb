@@ -36,7 +36,15 @@ class CardsController < ApplicationController
   end
 
   def update
-
+    respond_to do |format|
+      if @card.update(card_params)
+        format.html { redirect_to @card, notice: 'Card schedule was successfully updated.' }
+        format.json { head :no_content }
+      else
+        format.html { render action: 'edit' }
+        format.json { render json: @card.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   def delete

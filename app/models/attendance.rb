@@ -13,6 +13,9 @@
 #  attended          :boolean
 #  created_at        :datetime
 #  updated_at        :datetime
+#  present           :boolean
+#  date              :date
+#  weekday           :string(255)
 #
 # Indexes
 #
@@ -23,4 +26,10 @@
 #
 
 class Attendance < ActiveRecord::Base
+
+  belongs_to :student
+
+  # validates :date, presence: true
+  validates :student_id, presence: true
+
 end

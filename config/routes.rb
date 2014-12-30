@@ -2,6 +2,12 @@ SchoolWings::Application.routes.draw do
 
 
 
+  # get 'manual_attendance' => 'attendances#manual_attendance'
+  # post 'create_mass_attendance' => 'attendances#create_mass_attendance'
+  # match 'attendances', to: 'attendances#create', via: [:options]
+  resources :attendances
+
+
   resources :cards
 
   resources :government_salaries
