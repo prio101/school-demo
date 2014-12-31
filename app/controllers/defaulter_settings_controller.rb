@@ -3,6 +3,8 @@ class DefaulterSettingsController < ApplicationController
 
   # GET /defaulter_settings
   # GET /defaulter_settings.json
+  before_filter :authenticate_user!
+  filter_access_to :all
   def index
     @defaulter_settings = DefaulterSetting.all
   end

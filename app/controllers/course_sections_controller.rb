@@ -3,6 +3,8 @@ class CourseSectionsController < ApplicationController
 
   # GET /course_sections
   # GET /course_sections.json
+  before_filter :authenticate_user!
+  filter_access_to :all
   def index
     add_breadcrumb "Class Section", :course_sections_path, :options => {:title => "Class Sections"}
     @course_sections = CourseSection.page params[:page]

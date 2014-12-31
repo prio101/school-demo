@@ -2,6 +2,8 @@ class ParentsController < ApplicationController
 
   before_action :set_student
   before_action :set_parent, only: [:show, :edit, :update, :destroy]
+  before_filter :authenticate_user!
+  filter_access_to :all
 
   # GET /parents
   # GET /parents.json

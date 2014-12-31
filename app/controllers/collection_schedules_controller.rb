@@ -3,6 +3,8 @@ class CollectionSchedulesController < ApplicationController
 
   # GET /collection_schedules
   # GET /collection_schedules.json
+  before_filter :authenticate_user!
+  filter_access_to :all
   def index
     add_breadcrumb "Fee Collection", :collection_schedules_path, :options => {:title => "Fee Collection"}
     @collection_schedules = CollectionSchedule.page params[:page]

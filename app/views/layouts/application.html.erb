@@ -72,6 +72,8 @@
                 </ul>
               </li>
 
+              <% if current_user and !current_user.student %>
+
               <li>
                 <a href="/students/new">Addmission</a>
               </li>
@@ -113,6 +115,8 @@
                   <li><a href="/fee_collections">Fee Collection</a></li>
                 </ul>
               </li>
+
+              <% end %>
 
             </ul>
           </div><!--/.nav-collapse -->

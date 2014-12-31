@@ -5,6 +5,8 @@ class FeeCategoriesController < ApplicationController
 
   before_action :set_fee_category, only: [:show, :edit, :update, :destroy]
 
+  filter_access_to :all
+
   # GET /fee_categories
   # GET /fee_categories.json
   def index
