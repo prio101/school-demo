@@ -47,7 +47,11 @@
 
           <% if current_user %>
 
-                <a class="brand_2" href="/"><%= "User: "+current_user.email %></a>
+              <% if current_user.student? %>
+                  <a class="brand_2" href="/"><%= "User: "+ current_user.student.name %></a>
+              <% else %>
+                  <a class="brand_2" href="/"><%= "User: "+ current_user.username %></a>
+              <% end %>
 
           <% end %>
 

@@ -147,7 +147,8 @@ class Student < ActiveRecord::Base
       @user = User.create!({email: "#{[first_name.strip, last_name.strip, self.id].join('_')}@#{school.host}",
                             password: "student_#{id}#{123}",
                             school_id: school_id,
-                            student_id: self.id
+                            student_id: self.id,
+                            username: self.name
                            })
       if @user
         @user.roles.create!({title: 'student', school_id: self.school_id})
