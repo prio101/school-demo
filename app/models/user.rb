@@ -85,6 +85,10 @@ class User < ActiveRecord::Base
 
   end
 
+  def student?
+    self.student.present?
+  end
+
 
 
 end

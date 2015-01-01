@@ -49,6 +49,11 @@ class StudentsController < ApplicationController
   # GET /students/1
   # GET /students/1.json
   def show
+    if current_user.student?
+      if current_user.student.id != @student.id
+        redirect_to main_home_path, alert: "You are not authorized!"
+      end
+    end
     @assigned_subjects = @student.subjects
   end
 
@@ -65,6 +70,7 @@ class StudentsController < ApplicationController
   # GET /students/1/edit
   def edit
     add_breadcrumb "Edit Student", :edit_student_path, :options => {:title => "Edit Students"}
+    redirect_to main_home_path, alert: "You are not authorized!" if current_user.student?
   end
 
   # POST /students
