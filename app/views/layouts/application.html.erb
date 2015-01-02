@@ -69,8 +69,7 @@
             <ul class="nav nav-tabs">
 
               <li class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                  Account<span class="caret"></span>
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#"><%= t "layouts.application.account" %><span class="caret"></span>
                 </a>
                 <ul class="dropdown-menu">
                   <% if current_user %>
@@ -89,35 +88,35 @@
 
               <li class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="/students/dashboard">
-                  Students<span class="caret"></span>
+                  <%= t "layouts.application.students" %><span class="caret"></span>
                 </a>
                 <ul class="dropdown-menu">
                  <!-- <li><a href="/students/new">Admission</a></li> -->
-                  <li><a href="/students">Students</a></li>
+                  <li><a href="/students"></a>Students</li>
                   <li><a href=" /students/import">Import Students</a></li>
                   <li><a href=" /students/defaulters">Defaulters Students</a></li>
                 </ul>
               </li>
 
               <li>
-                <a href="/school_years">Year/Term</a>
+                <a href="/school_years"><%= t "layouts.application.year" %></a>
               </li>
 
               <li>
-                <a href="/classes">Courses</a>
+                <a href="/classes"><%= t "layouts.application.courses" %></a>
               </li>
 
               <li>
-                <a href="/class_sections">Class Section</a>
+                <a href="/class_sections"><%= t "layouts.application.class_section" %></a>
               </li>
 
               <li>
-                <a href="/defaulter_settings">Defaulter Settings</a>
+                <a href="/defaulter_settings"><%= t "layouts.application.defaulter_setting" %></a>
               </li>
 
               <li class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="/fees/dashboard">
-                  Fee Payment<span class="caret"></span>
+                  <%= t "layouts.application.fee_payment" %><span class="caret"></span>
                 </a>
                 <ul class="dropdown-menu">
                   <li><a href="/school_fees">Fee Categories</a></li>

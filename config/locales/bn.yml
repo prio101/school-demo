@@ -2,3 +2,10 @@ bn:
   layouts:
       application:
         admission: "ভর্তি"
+        account: "একাউন্ট"
+        students: "ছাত্রছাত্রী "
+        year: "বছর"
+        courses: "কোর্স"
+        class_section: "সেকশন"
+        defaulter_setting: "সেটিং"
+        fee_payment: "হিসাব"

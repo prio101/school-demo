@@ -23,3 +23,10 @@ en:
   layouts:
     application:
       admission: "Admission"
+      account: "Account"
+      students: "Students"
+      year: "Year/Term"
+      courses: "Courses"
+      class_section: "Class Section"
+      defaulter_setting: "Defaulter Setting"
+      fee_payment: "Fee Payment"
