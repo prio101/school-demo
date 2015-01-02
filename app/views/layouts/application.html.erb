@@ -39,7 +39,11 @@
   <body>
 
     <div class="navbar navbar-simple navbar-fixed-top">
+      Language
+      <%= link_to_unless_current "English", locale: 'en' %>
+      <%= link_to_unless_current "Bangla", locale: 'bn' %>
       <div class="navbar-inner">
+
         <div class="container">
           <a class="brand" href="/">
                <%= current_school.try(:name) %>
@@ -52,7 +56,6 @@
               <% else %>
                   <a class="brand_2" href="/"><%= "User: "+ current_user.username %></a>
               <% end %>
-              <p>Language</p>
 
         <% end %>
 
@@ -81,7 +84,7 @@
               <% if current_user and !current_user.student? %>
 
               <li>
-                <a href="/students/new">Addmission</a>
+                <a href="/students/new"><%= t "layouts.application.admission" %></a>
               </li>
 
               <li class="dropdown">

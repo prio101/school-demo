@@ -5,6 +5,8 @@ class ApplicationController < ActionController::Base
 
   protect_from_forgery with: :exception
 
+  before_filter :set_locale
+
   before_filter :set_school
   before_filter :disable_authorization_for_super_admins
   before_filter :set_current_user
@@ -18,6 +20,10 @@ class ApplicationController < ActionController::Base
      render_page_not_found
   end
 
+
+  def set_locale
+    I18n.locale = params[:locale] if params[:locale].present?
+  end
 
   def admin_zone?
     self.class.parent == Admin
