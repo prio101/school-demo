@@ -18,6 +18,12 @@ authorization do
     has_permission_on :student_balances, :to => :manage do
       if_attribute :school_id => is {ActsAsTenant.current_tenant.id}
     end
+    has_permission_on :fee_categories, :to => :manage do
+      if_attribute :school_id => is {ActsAsTenant.current_tenant.id}
+    end
+    has_permission_on :collection_schedules, :to => :manage do
+      if_attribute :school_id => is {ActsAsTenant.current_tenant.id}
+    end
   end
 
   role :student do
