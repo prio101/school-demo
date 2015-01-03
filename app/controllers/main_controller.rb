@@ -6,9 +6,13 @@ class MainController < ApplicationController
 
 
   def home
+    # if !current_user.try(:student).nil?
+    #   @student_balances = current_user.student.student_balances rescue []
+    #   render :student_balance_information and return
+    # end
     if !current_user.try(:student).nil?
-      @student_balances = current_user.student.student_balances rescue []
-      render :student_balance_information and return
+      @student = Student.find(current_user.student.id)
+      redirect_to student_path(@student)
     end
 
   end
