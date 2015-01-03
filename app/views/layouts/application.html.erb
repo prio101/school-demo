@@ -45,9 +45,8 @@
       <div class="navbar-inner">
 
         <div class="container">
-          <a class="brand" href="/">
-               <%= current_school.try(:name) %>
-          </a>
+
+          <%= link_to current_school.try(:name), main_home_path, class: 'brand' %>
 
           <% if current_user %>
 
