@@ -2,10 +2,11 @@ class ResultsController < ApplicationController
 
   before_action :set_result, only: [:show, :edit, :delete]
   before_filter :authenticate_user!
-  before_filter :set_student
+  # before_filter :set_student
 
   def index
-    @results = Result.where(student_id: @student.id)
+    # @results = Result.where(student_id: @student.id)
+    @results = Result.all
   end
 
   def show
@@ -56,14 +57,14 @@ class ResultsController < ApplicationController
 
   private
 
-  def set_student
-    if params[:student_id].blank?
-      respond_to do |format|
-        format.html {redirect_to request.referer , notice: 'You have to provide student id.'}
-      end
-    end
-    @student = Student.find(params[:student_id])
-  end
+  # def set_student
+  #   if params[:student_id].blank?
+  #     respond_to do |format|
+  #       format.html {redirect_to request.referer , notice: 'You have to provide student id.'}
+  #     end
+  #   end
+  #   @student = Student.find(params[:student_id])
+  # end
 
   def set_result
     @result = Result.find(params['id'])

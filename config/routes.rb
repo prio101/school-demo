@@ -2,6 +2,8 @@ SchoolWings::Application.routes.draw do
 
 
 
+  resources :exams
+
   # get 'manual_attendance' => 'attendances#manual_attendance'
   # post 'create_mass_attendance' => 'attendances#create_mass_attendance'
   # match 'attendances', to: 'attendances#create', via: [:options]
@@ -20,6 +22,7 @@ SchoolWings::Application.routes.draw do
 
   resources :defaulter_settings
   resources :student_defaulter_settings
+  resources :results
 
   root "homepage#index"
   get 'main/home' => "main#home"
@@ -38,7 +41,6 @@ SchoolWings::Application.routes.draw do
     collection { post :import }
     collection { get :import }
     member { get :assign_subjects }
-    resources :results
     resources :student_balances
     resources :parents
     collection do

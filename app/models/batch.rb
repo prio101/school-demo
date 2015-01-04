@@ -26,6 +26,7 @@ class Batch < ActiveRecord::Base
   has_many :parents
   has_many :course_sections, through: :courses
   has_many :invoices
+  has_many :exams
 
   belongs_to :school
 

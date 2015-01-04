@@ -18,9 +18,9 @@
         <td><%= result.exam_name %></td>
         <td><%= result.code %></td>
         <td><%= result.grade %></td>
-        <td><%= link_to 'Show', student_result_path(@student, result) %></td>
-        <td><%= link_to 'Edit', edit_student_result_path(@student, result) %></td>
-        <td><%= link_to 'Destroy', [@student, result], data: { confirm: 'Are you sure?', method: :delete } %></td>
+        <td><%= link_to 'Show', result_path(result) %></td>
+        <td><%= link_to 'Edit', edit_result_path(result) %></td>
+        <td><%= link_to 'Destroy', result, data: { confirm: 'Are you sure?', method: :delete } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -28,4 +28,4 @@
 
 <br>
 
-<%= link_to 'New Result', new_student_result_path(@student) %>
+<%= link_to 'New Result', new_result_path(@student) %>

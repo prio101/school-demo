@@ -1,16 +1,16 @@
 # == Schema Information
 #
-# Table name: subjects
+# Table name: exams
 #
 #  id         :integer          not null, primary key
 #  name       :string(255)
 #  code       :string(255)
+#  batch_id   :integer
 #  created_at :datetime
 #  updated_at :datetime
 #
 
-class Subject < ActiveRecord::Base
-  has_many :student_subjects
-  has_many :students, through: :student_subjects
+class Exam < ActiveRecord::Base
+  belongs_to :batch
   has_many :results
 end
