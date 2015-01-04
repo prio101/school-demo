@@ -6,7 +6,11 @@ class ResultsController < ApplicationController
 
   def index
     # @results = Result.where(student_id: @student.id)
-    @results = Result.all
+    if params[:exam_id].present? and params[:course_id].present?
+      @results = Result.where({exam_id: params[:exam_id], course_id: params[:course_id] })
+    else
+      flash.now[:error] = 'Please select Exam and Class'
+    end
   end
 
   def show
@@ -14,11 +18,11 @@ class ResultsController < ApplicationController
   end
 
   def new
-    @result = @student.results.new
+    @result = Result.new
   end
 
   def create
-    @result = @student.results.new(result_params)
+    @result = Result.new(result_params)
 
     respond_to do |format|
       if @result.save

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150103230245) do
+ActiveRecord::Schema.define(version: 20150104145855) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -117,7 +117,7 @@ ActiveRecord::Schema.define(version: 20150103230245) do
   create_table "collection_schedules", force: true do |t|
     t.string   "fee_category_id"
     t.string   "name"
-    t.string   "starting_time",      default: "2014-12-20", null: false
+    t.string   "starting_time",      default: "2014-12-29", null: false
     t.string   "ending_time"
     t.integer  "school_id"
     t.boolean  "create_due_invoice", default: true
@@ -245,6 +245,7 @@ ActiveRecord::Schema.define(version: 20150103230245) do
     t.integer  "batch_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "course_id"
   end
 
   create_table "fee_categories", force: true do |t|

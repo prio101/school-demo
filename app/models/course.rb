@@ -27,6 +27,7 @@ class Course < ActiveRecord::Base
   has_many :students
   has_many :course_sections
   has_many :invoices
+  has_many :exams
 
   belongs_to :batch
   belongs_to :school

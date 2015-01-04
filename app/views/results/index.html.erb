@@ -1,30 +1,62 @@
 <h1>Listing results</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Exam name</th>
-      <th>Code</th>
-      <th>Grade</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @results.each do |result| %>
+<%= form_tag results_path, method: 'get' do %>
+    <table class = 'table'>
       <tr>
-        <td><%= result.exam_name %></td>
-        <td><%= result.code %></td>
-        <td><%= result.grade %></td>
-        <td><%= link_to 'Show', result_path(result) %></td>
-        <td><%= link_to 'Edit', edit_result_path(result) %></td>
-        <td><%= link_to 'Destroy', result, data: { confirm: 'Are you sure?', method: :delete } %></td>
+        <th>
+          <%= label_tag "Class" %>
+        </th>
+        <th><div class="control-group">
+          <div class="controls">
+            <%= select_tag :course_id, options_from_collection_for_select(Course.all, :id, :name), include_blank: false , :class => 'text_field' %>
+          </div>
+        </div></th>
+        <th>
+
+          <%= label_tag "Year" %>
+        </th>
+        <th>
+          <div class="control-group">
+            <div class="controls" id="course-container">
+              <%= select_tag :exam_id, options_from_collection_for_select(Exam.all, :id, :name), include_blank: false , :class => 'text_field' %>
+            </div>
+          </div>
+        </th>
+        <th>
+          <%= submit_tag 'View Results' %>
+        </th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </table>
+
+<% end %>
+
+
+<!--<table>-->
+  <!--<thead>-->
+    <!--<tr>-->
+      <!--<th>Exam name</th>-->
+      <!--<th>Code</th>-->
+      <!--<th>Grade</th>-->
+      <!--<th></th>-->
+      <!--<th></th>-->
+      <!--<th></th>-->
+    <!--</tr>-->
+  <!--</thead>-->
+
+  <!--<tbody>-->
+    <!--<#% @results.each do |result| %>-->
+      <!--<tr>-->
+        <!--<td><#%= result.exam_name %></td>-->
+        <!--<td><#%= result.code %></td>-->
+        <!--<td><#%= result.grade %></td>-->
+        <!--<td><#%= link_to 'Show', result_path(result) %></td>-->
+        <!--<td><#%= link_to 'Edit', edit_result_path(result) %></td>-->
+        <!--<td><#%= link_to 'Destroy', result, data: { confirm: 'Are you sure?', method: :delete } %></td>-->
+      <!--</tr>-->
+    <!--<#% end %>-->
+  <!--</tbody>-->
+<!--</table>-->
 
 <br>
 
