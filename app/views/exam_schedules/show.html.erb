@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Course:</strong>
+  <%= @exam_schedule.course_id %>
+</p>
+
+<p>
+  <strong>Teacher:</strong>
+  <%= @exam_schedule.teacher_id %>
+</p>
+
+<p>
+  <strong>Starting date:</strong>
+  <%= @exam_schedule.starting_date %>
+</p>
+
+<p>
+  <strong>Ending date:</strong>
+  <%= @exam_schedule.ending_date %>
+</p>
+
+<p>
+  <strong>Comment:</strong>
+  <%= @exam_schedule.comment %>
+</p>
+
+<p>
+  <strong>Active:</strong>
+  <%= @exam_schedule.active %>
+</p>
+
+<%= link_to 'Edit', edit_exam_schedule_path(@exam_schedule) %> |
+<%= link_to 'Back', exam_schedules_path %>

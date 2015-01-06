@@ -1,0 +1,27 @@
+<h1>Listing exam_groups</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @exam_groups.each do |exam_group| %>
+      <tr>
+        <td><%= exam_group.name %></td>
+        <td><%= link_to 'Show', exam_group %></td>
+        <td><%= link_to 'Edit', edit_exam_group_path(exam_group) %></td>
+        <td><%= link_to 'Destroy', exam_group, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Exam group', new_exam_group_path %>

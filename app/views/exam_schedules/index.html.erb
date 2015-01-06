@@ -1,0 +1,37 @@
+<h1>Listing exam_schedules</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Course</th>
+      <th>Teacher</th>
+      <th>Starting date</th>
+      <th>Ending date</th>
+      <th>Comment</th>
+      <th>Active</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @exam_schedules.each do |exam_schedule| %>
+      <tr>
+        <td><%= exam_schedule.course_id %></td>
+        <td><%= exam_schedule.teacher_id %></td>
+        <td><%= exam_schedule.starting_date %></td>
+        <td><%= exam_schedule.ending_date %></td>
+        <td><%= exam_schedule.comment %></td>
+        <td><%= exam_schedule.active %></td>
+        <td><%= link_to 'Show', exam_schedule %></td>
+        <td><%= link_to 'Edit', edit_exam_schedule_path(exam_schedule) %></td>
+        <td><%= link_to 'Destroy', exam_schedule, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Exam schedule', new_exam_schedule_path %>
