@@ -48,9 +48,9 @@
           <% if current_user %>
 
               <% if current_user.student? %>
-                  <a class="brand_2" href="/"><%= "User: "+ current_user.student.name %></a>
+                  <a class="brand_2" href="/"><%= "User: #{current_user.try(:student.name)}" %></a>
               <% else %>
-                  <a class="brand_2" href="/"><%= "User: "+ current_user.username %></a>
+                  <a class="brand_2" href="/"><%= "User: #{current_user.try(:username)}" %></a>
               <% end %>
 
           <% end %>

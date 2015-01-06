@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141230053816) do
+ActiveRecord::Schema.define(version: 20150106194946) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -131,6 +131,16 @@ ActiveRecord::Schema.define(version: 20141230053816) do
   add_index "collection_schedules", ["fee_category_id"], name: "index_collection_schedules_on_fee_category_id", using: :btree
   add_index "collection_schedules", ["school_id"], name: "index_collection_schedules_on_school_id", using: :btree
 
+  create_table "course_exams", force: true do |t|
+    t.integer  "course_id"
+    t.integer  "examiner_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "course_exams", ["course_id"], name: "index_course_exams_on_course_id", using: :btree
+  add_index "course_exams", ["examiner_id"], name: "index_course_exams_on_examiner_id", using: :btree
+
   create_table "course_sections", force: true do |t|
     t.integer  "school_id"
     t.string   "section_name"
@@ -239,6 +249,47 @@ ActiveRecord::Schema.define(version: 20141230053816) do
     t.datetime "updated_at"
   end
 
+  create_table "exam_groups", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "exam_schedules", force: true do |t|
+    t.integer  "course_id"
+    t.datetime "starting_date"
+    t.datetime "ending_date"
+    t.text     "comment"
+    t.integer  "active"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "exam_id"
+  end
+
+  add_index "exam_schedules", ["active"], name: "index_exam_schedules_on_active", using: :btree
+  add_index "exam_schedules", ["course_id"], name: "index_exam_schedules_on_course_id", using: :btree
+  add_index "exam_schedules", ["exam_id"], name: "index_exam_schedules_on_exam_id", using: :btree
+
+  create_table "examiners", force: true do |t|
+    t.integer  "exam_schedule_id"
+    t.integer  "teacher_id"
+    t.integer  "subject_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "exams", force: true do |t|
+    t.string   "name"
+    t.integer  "position"
+    t.integer  "exam_group_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "full_marks",    default: 40, null: false
+  end
+
+  add_index "exams", ["exam_group_id"], name: "index_exams_on_exam_group_id", using: :btree
+  add_index "exams", ["position"], name: "index_exams_on_position", using: :btree
+
   create_table "fee_categories", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
@@ -330,6 +381,21 @@ ActiveRecord::Schema.define(version: 20141230053816) do
   add_index "invoices", ["fee_id"], name: "index_invoices_on_fee_id", using: :btree
   add_index "invoices", ["school_id"], name: "index_invoices_on_school_id", using: :btree
   add_index "invoices", ["user_id"], name: "index_invoices_on_user_id", using: :btree
+
+  create_table "marks_submissions", force: true do |t|
+    t.decimal  "obtained_marks",    precision: 10, scale: 0
+    t.string   "exam_marks"
+    t.string   "grace"
+    t.integer  "course_exam_id"
+    t.integer  "student_id"
+    t.integer  "course_section_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "marks_submissions", ["course_exam_id"], name: "index_marks_submissions_on_course_exam_id", using: :btree
+  add_index "marks_submissions", ["course_section_id"], name: "index_marks_submissions_on_course_section_id", using: :btree
+  add_index "marks_submissions", ["student_id"], name: "index_marks_submissions_on_student_id", using: :btree
 
   create_table "notices", force: true do |t|
     t.string   "title"

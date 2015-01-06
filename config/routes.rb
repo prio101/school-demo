@@ -2,6 +2,12 @@ SchoolWings::Application.routes.draw do
 
 
 
+  resources :exam_schedules
+
+  resources :exams
+
+  resources :exam_groups
+
   # get 'manual_attendance' => 'attendances#manual_attendance'
   # post 'create_mass_attendance' => 'attendances#create_mass_attendance'
   # match 'attendances', to: 'attendances#create', via: [:options]

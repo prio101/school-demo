@@ -66,6 +66,8 @@ gem 'whenever'
 
 gem 'roo'
 
+gem 'acts_as_list'
+
 group :development do
   gem 'capistrano', '2.15.5'
   gem 'capistrano-ext'

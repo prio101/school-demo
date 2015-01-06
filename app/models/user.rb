@@ -53,7 +53,7 @@ class User < ActiveRecord::Base
   has_many :roles
   belongs_to :school
   belongs_to :student
-  # has_one :teacher
+  has_one :teacher
   belongs_to :parent
 
   validates :school_id, presence: true, numericality: true

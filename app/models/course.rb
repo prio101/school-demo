@@ -24,12 +24,15 @@ class Course < ActiveRecord::Base
 
   #using_access_control
 
+  belongs_to :batch
+  belongs_to :school
+
   has_many :students
   has_many :course_sections
   has_many :invoices
 
-  belongs_to :batch
-  belongs_to :school
+  has_many :course_exams
+  has_many :examiners, through: :course_exams
 
   validates :school_id, :batch_id, :name, :presence => true 
   validates :code, presence: true, uniqueness: true
