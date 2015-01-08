@@ -15,4 +15,14 @@ class MainController < ApplicationController
 
   def student_balance_information
   end
+
+  def attendances
+    @attendances = Attendance.where(created_at: Time.now.beginning_of_day..Time.now.end_of_day)
+  end
+
+  def last_attns
+    @attendances = Attendance.where(created_at: Time.now.beginning_of_day..Time.now.end_of_day)
+  end
+
+
 end

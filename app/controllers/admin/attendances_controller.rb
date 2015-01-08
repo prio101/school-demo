@@ -1,4 +1,4 @@
-class AttendancesController < ApplicationController
+class Admin::AttendancesController < ApplicationController
 
 
 #   skip_before_filter :verify_authenticity_token
@@ -20,7 +20,10 @@ class AttendancesController < ApplicationController
 #     headers['Access-Control-Max-Age'] = '1728000'
 #   end
 
+
+
   def index
+    @students = Student.all
     @attendances = Attendance.all
   end
 
@@ -43,15 +46,26 @@ class AttendancesController < ApplicationController
   # POST /parents
   # POST /parents.json
   def create
-    @attendance = Attendance.create!(attendance_params)
-    respond_to :js
+    @attendance = Attendance.new(attendance_params)
+    if @attendance.save
+      flash[:notice] = 'Attendance was successfully created.'
+      redirect_to :action => 'index'
+    else
+      render :action => 'new'
+    end
+
   end
 
   # PATCH/PUT /parents/1
   # PATCH/PUT /parents/1.json
   def update
     @attendance = Attendance.find(params[:id])
-    @attendance.toggle!(:active)
+    if @attendance.update_attributes(notice_params)
+      flash[:attendance] = 'Notice was successfully updated.'
+      redirect_to :action => 'show', :id => @attendance
+    else
+      render :action => 'edit'
+    end
   end
 
   # DELETE /parents/1
@@ -68,6 +82,15 @@ class AttendancesController < ApplicationController
   # def create_mass_attendance
   #
   # end
+
+  def search_course
+    @batch = Batch.find(params[:batch_id]) rescue nil
+    @courses = @batch.course_sections.includes(:course)
+  end
+
+  def search_students
+    @students = Student.where(course_section_id: params[:course_section_id]) rescue nil
+  end
 
   private
 

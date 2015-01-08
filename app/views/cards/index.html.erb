@@ -15,7 +15,7 @@
     <% @cards.each do |card| %>
       <tr>
         <td><%= card.tag %></td>
-        <td><%= card.student_id %></td>
+        <td><%= card.student.try(:name) %></td>
         <td><%= link_to 'Show', card %></td>
         <td><%= link_to 'Edit', edit_card_path(card) %></td>
         <td><%= link_to 'Destroy', card, method: :delete, data: { confirm: 'Are you sure?' } %></td>

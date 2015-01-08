@@ -1,0 +1,21 @@
+<div id="attns">
+  <%= render 'main/todays_attendances', {attendances: @attendances} %>
+</div>
+
+<%= form_tag('/l_attn', method: :get, remote: true) %>
+
+<script type="text/javascript">
+    $(function(){
+        startRefresh()
+
+    })
+
+    function startRefresh() {
+        setInterval(function(){ loadContent(); }, 4000);
+
+    }
+
+    function loadContent(){
+        $('form').submit()
+    }
+</script>

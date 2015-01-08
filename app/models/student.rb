@@ -27,6 +27,7 @@
 # Indexes
 #
 #  index_students_on_batch_id              (batch_id)
+#  index_students_on_card_id               (card_id)
 #  index_students_on_classification_id     (classification_id)
 #  index_students_on_course_id             (course_id)
 #  index_students_on_course_section_id     (course_section_id)
@@ -58,7 +59,7 @@ class Student < ActiveRecord::Base
   has_many :student_balances
   has_many :invoices
   has_many :parents
-  has_many :cards
+  belongs_to :card
   has_many :attendances
 
 
@@ -87,6 +88,10 @@ class Student < ActiveRecord::Base
     .having('sum(student_balances.amount) > ?', target)
     .references(:student_balances)
   }
+
+  def current_attendance
+    attendances.where(created_at: Time.now.beginning_of_day..Time.now.end_of_day).first_or_initialize
+  end
 
 
   def defaulter?

@@ -1,0 +1,9 @@
+<%= form_for(attendance, method: attendance.new_record? ? :post : :patch ,remote: true) do |f| %>
+    <% if attendance.persisted? and attendance.active %>
+    <%= f.submit 'mark as absent' %>
+<% elsif !attendance.active || attendance.new_record? %>
+    <%= f.hidden_field :active, value: true %>
+        <%= f.hidden_field :student_id, value: attendance.student.id %>
+    <%= f.submit 'Mark as Present' %>
+<% end %>
+<% end %>

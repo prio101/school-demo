@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150106194946) do
+ActiveRecord::Schema.define(version: 20150108095310) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -530,9 +530,11 @@ ActiveRecord::Schema.define(version: 20150106194946) do
     t.string   "guardian_email"
     t.string   "school_year"
     t.string   "avatar"
+    t.integer  "card_id"
   end
 
   add_index "students", ["batch_id"], name: "index_students_on_batch_id", using: :btree
+  add_index "students", ["card_id"], name: "index_students_on_card_id", using: :btree
   add_index "students", ["classification_id"], name: "index_students_on_classification_id", using: :btree
   add_index "students", ["course_id"], name: "index_students_on_course_id", using: :btree
   add_index "students", ["course_section_id"], name: "index_students_on_course_section_id", using: :btree

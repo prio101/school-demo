@@ -10,5 +10,8 @@
 #
 
 class Card < ActiveRecord::Base
-  belongs_to :student
+  has_one :student
+
+
+  scope :unassigned, -> {includes(:student).where('students.id IS ?', nil)}
 end

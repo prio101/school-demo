@@ -26,6 +26,9 @@ authorization do
       end
     has_permission_on :subjects, :to => :manage do
       if_attribute :school_id => is {ActsAsTenant.current_tenant.id}
+      end
+    has_permission_on :course_sections, :to => :manage do
+      if_attribute :school_id => is {ActsAsTenant.current_tenant.id}
     end
   end
 
@@ -38,7 +41,7 @@ authorization do
     end
     has_permission_on :balances, :to => [:read, :dashboard] do
       if_attribute :students => is { user.student }
-    end
+      end
   end
 
 end

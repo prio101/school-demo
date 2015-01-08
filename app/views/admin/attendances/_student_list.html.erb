@@ -1,0 +1,7 @@
+<% students.each do |student| %>
+    <%= student.name %>
+    <% attendance = student.current_attendance %>
+    <span id="attendance-for-<%= student.id %>">
+       <%= render attendance%>
+    </span>
+<% end %>

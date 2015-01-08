@@ -1,0 +1,6 @@
+<% @attendances.each do |attendance| %>
+    <p>Admission Number: <%= attendance.student.admission_number %></p>
+    <p>Name: <%= attendance.student.name %></p>
+    <p>Name: <%= attendance.student.try(:course_section).try(:display_name) %></p>
+    <p> <%= image_tag attendance.student.avatar_url if attendance.student.avatar_url.nil? %></p>
+<% end %>

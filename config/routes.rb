@@ -24,11 +24,22 @@ SchoolWings::Application.routes.draw do
 
   resources :subjects
 
+  namespace :admin do
+    get "home/index"
+    resources :attendances do
+      get :search_course, on: :collection
+      get :search_students, on: :collection
+    end
+  end
+
   resources :defaulter_settings
   resources :student_defaulter_settings
 
   root "homepage#index"
+  get '/tag' => 'homepage#tag'
   get 'main/home' => "main#home"
+  get '/attn' => "main#attendances"
+  get '/l_attn' => "main#last_attns"
   get 'main/student_balance_information'
 
   devise_for :users

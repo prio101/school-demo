@@ -1,0 +1,7 @@
+
+    <%= form_tag(search_students_admin_attendances_path, {method: :get, remote: true}) do %>
+        <%= label_tag 'Class' %>
+        <%= select_tag :course_section_id, options_from_collection_for_select(courses, :id, :display_name), include_blank: false , :class => 'text_field' %>
+
+        <%= submit_tag 'Submit' %>
+    <% end %>

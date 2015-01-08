@@ -1,0 +1,12 @@
+<%= form_tag(search_course_admin_attendances_path, {method: :get, remote: true}) do %>
+    <%= label_tag 'School Year' %>
+    <%= select_tag :batch_id, options_from_collection_for_select(Batch.all, :id, :name), include_blank: false , :class => 'text_field' %>
+
+
+
+    <%= submit_tag 'Submit' %>
+<% end %>
+
+<span id="course-select"></span>
+<span id="course-section-select"></span>
+<span id="student-list"></span>
