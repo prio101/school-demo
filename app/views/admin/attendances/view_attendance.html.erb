@@ -1,12 +1,48 @@
-<%= form_tag(search_course_admin_attendances_path, {method: :get, remote: true}) do %>
-    <%= label_tag 'School Year' %>
-    <%= select_tag :batch_id, options_from_collection_for_select(Batch.all, :id, :name), include_blank: false , :class => 'text_field' %>
+<%= form_for admin_view_attendance_path, method: :get do |f| %>
+    <div class="control-group">
+      <%= f.label "School Year", :class => 'control-label' %>
+      <div class="controls">
+        <%= f.select :batch_id, options_from_collection_for_select(Batch.all, :id, :name), include_blank: false ,prompt: true, :class => 'text_field' %>
+      </div>
+    </div>
 
+    <div class="control-group">
+      <%= f.label :class, :class => 'control-label' %>
+      <div class="controls" id="course-container">
+        <%= f.select :course_id, Course.all.collect {|c| [c.name, c.id]}, prompt: true, :class => 'text_field' %>
+      </div>
+    </div>
 
-
-    <%= submit_tag 'Submit' %>
+    <div class="form-actions">
+      <%= f.submit "View Attendance", :class => 'btn btn-primary' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                  students_path, :class => 'btn' %>
+    </div>
 <% end %>
 
-<span id="course-select" class="col-lg-4"></span>
-<!--<span id="course-section-select" class="col-lg-4"></span>-->
-<span id="student-list"></span>
+<script type="text/javascript">
+    $(function () {
+
+        $("#_admin_view_attendance_batch_id").on('change', function () {
+            var target_id = $(this).val()
+            var target_dom = "#course-container"
+            var target_input_name = "/admin/view_attendance[batch_id]"
+            var target_url = "/ajax/select_course"
+            cascading_input_field_changes(target_id, target_dom, target_input_name, target_url)
+
+        })
+
+
+        $( document ).ajaxComplete(function() {
+            $("#_admin_view_attendance_course_id").on('change', function () {
+                var target_id = $(this).val()
+                var target_dom = "#course-section-container"
+                var target_input_name = "/admin/view_attendance[course_id]"
+                var target_url = "/ajax/select_section"
+                cascading_input_field_changes(target_id, target_dom, target_input_name, target_url)
+            })
+        });
+
+    })
+</script>
+
