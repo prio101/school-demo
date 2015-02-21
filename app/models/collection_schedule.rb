@@ -5,7 +5,7 @@
 #  id                 :integer          not null, primary key
 #  fee_category_id    :string(255)
 #  name               :string(255)
-#  starting_time      :string(255)      default("2014-12-20"), not null
+#  starting_time      :string(255)      default("2014-12-26"), not null
 #  ending_time        :string(255)
 #  school_id          :integer
 #  create_due_invoice :boolean          default(TRUE)

@@ -117,7 +117,7 @@ ActiveRecord::Schema.define(version: 20150108095310) do
   create_table "collection_schedules", force: true do |t|
     t.string   "fee_category_id"
     t.string   "name"
-    t.string   "starting_time",      default: "2014-12-20", null: false
+    t.string   "starting_time",      default: "2014-12-26", null: false
     t.string   "ending_time"
     t.integer  "school_id"
     t.boolean  "create_due_invoice", default: true

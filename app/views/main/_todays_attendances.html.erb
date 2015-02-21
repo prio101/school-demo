@@ -1,7 +1,14 @@
 <% attendances.each do |attendance| %>
-    <p>Admission Number: <%= attendance.student.admission_number %></p>
-    <p>Name: <%= attendance.student.name %></p>
-    <p>Name: <%= attendance.student.try(:course_section).try(:display_name) %></p>
-    <p> <%= image_tag attendance.student.avatar_url if attendance.student.avatar_url.nil? %></p>
+    <div class="col-sm-4 col-md-4 col-lg-4 col-xs-4">
+      <%= image_tag attendance.student.avatar.url(:medium) %>
+    </div>
+
+    <div class="col-sm-8 col-md-8 col-lg-8 col-xs-8">
+      <p>Admission Number: <%= attendance.student.admission_number %></p>
+      <p>Name: <%= attendance.student.name %></p>
+      <p>Name: <%= attendance.student.try(:course_section).try(:display_name) %></p>
+      <p> <%= image_tag attendance.student.avatar_url if attendance.student.avatar_url.nil? %></p>
+      <hr/>
+    </div>
 <% end %>
 
