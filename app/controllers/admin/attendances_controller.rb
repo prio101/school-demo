@@ -82,6 +82,9 @@ class Admin::AttendancesController < ApplicationController
   # def create_mass_attendance
   #
   # end
+  def view_attendance
+
+  end
 
   def search_course
     @batch = Batch.find(params[:batch_id]) rescue nil

@@ -26,6 +26,7 @@ SchoolWings::Application.routes.draw do
 
   namespace :admin do
     get "home/index"
+    get "view_attendance" => "attendances#view_attendance"
     resources :attendances do
       get :search_course, on: :collection
       get :search_students, on: :collection
