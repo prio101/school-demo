@@ -83,7 +83,7 @@ class Admin::AttendancesController < ApplicationController
   #
   # end
   def view_attendance
-
+   @students = Student.where(batch_id: params[:batch_id], course_id: params[:course_id])
   end
 
   def search_course
